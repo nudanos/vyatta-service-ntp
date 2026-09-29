@@ -1,11 +1,14 @@
 Source: vyatta-service-ntp
-Section: contrib/net
-Priority: extra
-Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
-Build-Depends: config-package-dev,
-               debhelper (>= 9.20160709),
-               dh-yang
-Standards-Version: 3.9.8
+Section: net
+Priority: optional
+Maintainer: NuDanOS Maintainers <jon@fernandez.tech>
+Build-Depends: debhelper-compat (= 13),
+ config-package-dev,
+ dh-yang
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/nudanos/vyatta-service-ntp.git
+Vcs-Browser: https://github.com/nudanos/vyatta-service-ntp
 
 Package: vyatta-service-ntp
 Architecture: all

@@ -4,4 +4,4 @@
 #export DH_VERBOSE=1
 
 %:
-	dh $@ --with systemd --with=yang --with=config-package
+	dh $@ --with yang --with config-package
