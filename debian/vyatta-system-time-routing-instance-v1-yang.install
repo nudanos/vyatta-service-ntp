@@ -1,2 +1,2 @@
 yang/vyatta-system-time-routing-instance-v1.yang usr/share/configd/yang
-debian/ntpd@.service lib/systemd/system/
+debian/ntpd@.service usr/lib/systemd/system/
