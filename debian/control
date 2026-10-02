@@ -13,7 +13,7 @@ Vcs-Browser: https://github.com/nudanos/vyatta-service-ntp
 Package: vyatta-service-ntp
 Architecture: all
 Depends: vyatta-cfg (>= 1.16), libvyatta-interface-perl(>=1.26),
- vyatta-system (>= 2.21.6), ntp (>= 1:4.2.7p22), ntpdate, netplug,
+ vyatta-system (>= 2.21.6), ntpsec, ntpsec-ntpdate, netplug,
  ${misc:Depends}, ${perl:Depends}
 Conflicts: vyatta-cfg-system (<< 2.5)
 Replaces: vyatta-cfg-system (<< 2.5)
