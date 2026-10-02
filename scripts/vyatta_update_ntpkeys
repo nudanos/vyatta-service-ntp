@@ -13,7 +13,7 @@
 #----- Copyright & License -----
 
 #
-# Generate contents of /etc/ntp.keys
+# Generate contents of the keys file (/run/ntp/vrf/<instance>/ntp.keys)
 #
 
 use strict;

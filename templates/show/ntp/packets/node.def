@@ -7,12 +7,8 @@ run:    PID=$(pidof ntpd | cut -d' ' -f1)
         vrfname=`strings /proc/$PID/environ | grep -oP "VRFName=\K\w[-\w]*"`
         if [ -n "$vrfname" ]; then
             ( chvrf $vrfname ntpq --wide -n -c iostats | sed -n -r -e '/sent/p' && \
-              chvrf $vrfname ntpq --wide -n -c sysstats | sed -e '/^uptime/d' | sed -e '/^sysstats reset/d' ) && \
-              chvrf $vrfname ntpq --wide -n -c privatestat \
-              | awk -F: '{sub(/^  */,"",$2); printf("%-25s%s\n", $1": ", $2);}'
+              chvrf $vrfname ntpq --wide -n -c sysstats | sed -e '/^uptime/d' | sed -e '/^sysstats reset/d' )
         else
             ( ntpq --wide -n -c iostats | sed -n -r -e '/sent/p' && \
-              ntpq --wide -n -c sysstats | sed -e '/^uptime/d' | sed -e '/^sysstats reset/d' ) && \
-              ntpq --wide -n -c privatestat \
-              | awk -F: '{sub(/^  */,"",$2); printf("%-25s%s\n", $1": ", $2);}'
+              ntpq --wide -n -c sysstats | sed -e '/^uptime/d' | sed -e '/^sysstats reset/d' )
        fi

@@ -7,7 +7,7 @@ scripts/vyatta_update_ntpkeys opt/vyatta/sbin
 scripts/vyatta_update_ntp.pl opt/vyatta/sbin
 scripts/vyatta_update_ntpsrcIntf.pl opt/vyatta/sbin
 sysconf/ntp.conf opt/vyatta/etc
-sysconf/ntp.service.d/configuration-exists.conf /usr/lib/systemd/system/ntp.service.d
+sysconf/ntpsec.service.d/configuration-exists.conf /usr/lib/systemd/system/ntpsec.service.d
 scripts/netplug/deladdr.d/ntpd /etc/netplug/deladdr.d
 scripts/netplug/newaddr.d/ntpd /etc/netplug/newaddr.d
 

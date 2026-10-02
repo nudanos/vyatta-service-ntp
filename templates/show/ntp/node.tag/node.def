@@ -1,5 +1,5 @@
 help: Show date and time of specified NTP server
-allowed: awk '/^server/{if ($2 ~ /^-/) print $3; else print $2}' /etc/ntp.conf
+allowed: awk '/^server/{if ($2 ~ /^-/) print $3; else print $2}' /etc/ntpsec/ntp.conf
 run: 
     PID=$(pidof ntpd | cut -d' ' -f1)
     if [[ -z $PID ]]; then

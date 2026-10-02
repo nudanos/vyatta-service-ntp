@@ -105,7 +105,7 @@ print "trustedkey ", join( ' ', @keyids ), "\n"
 
 if ( $cfg->exists("statistics") ) {
     print "\nstatistics loopstats peerstats\n";
-    print "statsdir /var/log/ntpstats/\n";
+    print "statsdir /var/log/ntpsec/\n";
     print "filegen peerstats file peers type day link enable\n";
     print "filegen loopstats file loops type day link enable\n\n";
 }

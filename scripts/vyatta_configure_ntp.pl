@@ -50,8 +50,8 @@ sub _setup_config () {
 
     # For backward compat
     if ( $rtinstance eq "default" ) {
-        unlink "/etc/ntp.conf";
-        symlink( "$ntp_path/ntp.conf", "/etc/ntp.conf" );
+        unlink "/etc/ntpsec/ntp.conf";
+        symlink( "$ntp_path/ntp.conf", "/etc/ntpsec/ntp.conf" );
     }
 }
 
@@ -60,7 +60,7 @@ sub _start_ntp() {
       if -e '/usr/bin/vmware-toolbox-cmd';
 
     if ( $rtinstance eq "default" ) {
-        system("systemctl start ntp");
+        system("systemctl start ntpsec");
     } else {
         open( my $f, '>', "/run/ntp/vrf/$rtinstance/$rtinstance.env" )
           or die("$0: Could not open systemd env for writing $!\n");
@@ -75,11 +75,11 @@ sub _stop_ntp {
     my ($terminal) = @_;
     my $status;
     if ( $rtinstance eq "default" ) {
-        $status = `systemctl is-active ntp.service`;
+        $status = `systemctl is-active ntpsec.service`;
         if ( ( !defined $status ) || ( $status =~ /^inactive/ ) ) {
             return;
         }
-        system("systemctl stop ntp");
+        system("systemctl stop ntpsec");
     } else {
         $status = `systemctl is-active ntpd\@$rtinstance.service`;
         if ( ( !defined $status ) || ( $status =~ /^inactive/ ) ) {
@@ -89,7 +89,7 @@ sub _stop_ntp {
     }
     if ( $terminal == 1 ) {
         remove_tree("/run/ntp");
-        unlink "/etc/ntp.conf";
+        unlink "/etc/ntpsec/ntp.conf";
     }
 
     system('vmware-toolbox-cmd timesync enable > /dev/null 2>&1')

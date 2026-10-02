@@ -1,2 +1,2 @@
-/etc/dhcp/dhclient-exit-hooks.d/ntpdate
-/etc/network/if-up.d/ntpdate
+/etc/dhcp/dhclient-exit-hooks.d/ntpsec-ntpdate
+/etc/network/if-up.d/ntpsec-ntpdate

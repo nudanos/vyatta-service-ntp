@@ -1,3 +1,15 @@
+vyatta-service-ntp (0.24) trixie; urgency=medium
+
+  * Port to ntpsec (Debian 13 has no ntp package): depend on ntpsec and
+    ntpsec-ntpdate; the default instance's configuration is linked at
+    /etc/ntpsec/ntp.conf and runs as ntpsec.service; the drop-in moves to
+    ntpsec.service.d; drift file and statistics move to ntpsec's
+    /var/lib/ntpsec and /var/log/ntpsec; hide ntpsec-ntpdate's if-up and
+    dhclient hooks; "show ntp packets" drops the private statistics, which
+    ntpsec's ntpq does not have.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Fri, 02 Oct 2026 08:46:18 -0700
+
 vyatta-service-ntp (0.23) trixie; urgency=medium
 
   * Port to Debian 13 (trixie): debhelper-compat 13, Standards-Version 4.7.2, Rules-Requires-Root, NuDanOS Vcs.

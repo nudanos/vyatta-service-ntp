@@ -1,2 +1,2 @@
 # Type Path Mode UID GID Age Argument
-r! /etc/ntp.conf
+r! /etc/ntpsec/ntp.conf
